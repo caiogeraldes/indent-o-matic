@@ -168,6 +168,11 @@ function M.detect()
             break
         end
 
+        -- Check if nil to avoid notification error on line `if #line == 0 then...`
+        if line == nil then
+            goto continue
+        end
+
         -- Skip empty lines
         if #line == 0 then
             goto continue
